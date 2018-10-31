@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool genre = true;
   String ageLibelleDate = 'Entrez votre age';
-  double val = 100.0;
+  double taille = 100.0;
   double poids;
   bool ok = true;
   int selection;
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
                         ),
                         onPressed: choixDate,
                       ),
-                      new Text('votre taille : ${val.toInt()} cms',
+                      new Text('Votre taille : ${taille.toInt()} cm',
                           textAlign: TextAlign.center),
                       padding(),
                       new Slider(
@@ -85,10 +85,10 @@ class _HomeState extends State<Home> {
                         activeColor: _setColor(),
                         min: 100.0,
                         max: 200.0,
-                        value: val,
+                        value: taille,
                         onChanged: (double b) {
                           setState(() {
-                            val = b;
+                            taille = b;
                           });
                         },
                       ),
@@ -180,7 +180,7 @@ class _HomeState extends State<Home> {
 
   Row ligneRadios() {
     List<Widget> l = [];
-    mapActivite.forEach((cle, valeur) {
+    mapActivite.forEach((cle, tailleeur) {
       Column colonne = new Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -194,7 +194,7 @@ class _HomeState extends State<Home> {
               });
             },
           ),
-          new Text(valeur)
+          new Text(tailleeur)
         ],
       );
       l.add(colonne);
@@ -214,18 +214,18 @@ Multiplication selon activité:
 Faible: 1.2, Modéré: 1.5, Forte: 1.8.
 */
   void calculer(){
-    if (poids != null && selection != null && age != null ){
+    if (poids != null && taille != null && age != null ){
 
       if (genre) {
        
        setState(() {
-               calories = ( 66.4730 + (13.7516*poids) + (5.0033 * selection) + (6.7550 * age)).toInt();
+               calories = ( 66.4730 + (13.7516*poids) + (5.0033 * taille) + (6.7550 * age)).toInt();
               });
               dialogue();
 
       }else{
         setState(() {
-               calories = ( 655.0955 + (9.5634 * poids) + (1.8496 * selection) - (4.6756 * age)).toInt();
+               calories = ( 655.0955 + (9.5634 * poids) + (1.8496 * taille) - (4.6756 * age)).toInt();
               });
               dialogue();
       }
