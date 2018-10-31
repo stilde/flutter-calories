@@ -148,7 +148,10 @@ class _HomeState extends State<Home> {
         context: context,
         firstDate: new DateTime(1970),
         initialDate: new DateTime.now(),
-        lastDate: new DateTime(2050));
+        lastDate: new DateTime(2050),
+        locale: const Locale('fr'));
+       
+
     if (choix != null) {
       var difference = new DateTime.now().difference(choix);
       var jours = difference.inDays;
@@ -283,6 +286,7 @@ Faible: 1.2, Modéré: 1.5, Forte: 1.8.
     );
   }
 }
+
 
 
 
