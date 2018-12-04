@@ -11,8 +11,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Calories',
       localizationsDelegates: [
-       GlobalMaterialLocalizations.delegate,
-       
+       GlobalMaterialLocalizations.delegate,      
       ],
     
       theme: new ThemeData(
